@@ -1,5 +1,5 @@
-jqueryOpgaver
-=============
+jQuery Opgaver
+==============
 
 Du er velkommen til at dowloade alt kode og prøve det af :)
 
