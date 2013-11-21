@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="slider">
+        <div class="images">
+            <img src="billeder/Cookie.jpg" />
+            <img src="billeder/PuddleCookies.jpg" />
+            <img src="billeder/pistachioNibCookies.jpg" />
+            <img src="billeder/ToffeeBars.jpg" />
+            <img src="billeder/TruffleTriangles.jpg" />
+        </div>
+        <div class="slideNav">
+            <button class="previous">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+
+     </div>
+
+
+
+    <script src="../Scripts/jquery-2.0.3.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        /*
+            slider gallaeriet 
+        */
+        var index = 0;
+        var images = $(".slider").find("img"); // tag fadt i alle billeder
+
+        $(images).each(function (i, e) {
+            $(e).css("display", "none"); // skjul alle billeder
+        });
+        $(images).first().addClass("activ").css("display", "block");// find det første billede, giv den en class og vis den elemented
+
+        // vis næste billede
+        $(".next").on("click", function () {
+            var el = $(".activ");
+
+            if ($(el).is(":last-child")) { // Har det sidste billede?
+                // Find det første billede og gør den klar til at skal vises
+                $(images).first().css({ "display": "block", "z-index": -1 })
+            } else {
+                // Find det næste billede og gør den klar til at skal vises
+                $(el).next().css({ "display": "block", "z-index": -1 })
+            }
+            $(el).fadeOut("fast", function () {
+                // når billede er færdig med at blive vist (callback)
+                // fjern class fra billedet
+                $(el).removeClass("activ");
+
+                if ($(el).is(":last-child")) {
+                    // hvis billedet er det sidste, så find den første og vis.
+                    $(images).first().addClass("activ").css({ "z-index": 0 });
+                } else {
+                    // vis det neste billede
+                    $(el).next().addClass("activ").css({ "z-index": 0 });
+                }
+            });
+        });
+
+        $(".previous").on("click", function () {
+            var el = $(".activ");
+            if ($(el).is(":first-child")) {
+                $(images).last().css({ "display": "block", "z-index": -1 })
+            } else {
+                $(el).prev().css({ "display": "block", "z-index": -1 })
+            }
+            $(el).fadeOut("fast", function () {
+                $(el).removeClass("activ");
+                if ($(el).is(":first-child")) {
+                    $(images).last().addClass("activ").css({ "z-index": 0 });
+                } else {
+                    $(el).prev().addClass("activ").css({ "z-index": 0 });
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>

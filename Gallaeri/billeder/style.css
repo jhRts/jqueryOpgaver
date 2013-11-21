@@ -1,0 +1,10 @@
+﻿.images {
+    width:358px;
+    height:310px;
+    overflow:hidden;
+    position: relative;
+}
+.images img {
+    position: absolute;
+    left:0;
+}

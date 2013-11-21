@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery Form</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="form">
+        <form novalidate method="post">
+            <div class="row">
+                <div class="col-6">
+                    <label for="navn">Navn:</label>
+                </div>
+                <div class="col-6">
+                    <input id="navn" type="text" name="navn" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="mail">Email:</label>
+                </div>
+                <div class="col-6">
+                    <input id="mail" type="email" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="gentag-mail">Gentag mail:</label>
+                </div>
+                <div class="col-6">
+                    <input id="gentag-mail" type="email" name="gentag-mail" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="tlf">tlf:</label>
+                </div>
+                <div class="col-6">
+                    <input id="tlf" type="tel" name="tlf" required />
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-6 off-6">
+                    <input  type="submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>

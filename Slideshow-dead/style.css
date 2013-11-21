@@ -1,0 +1,38 @@
+﻿.galleri {
+    position: relative;
+}
+
+    .galleri .images {
+        width: 358px;
+        height: 310px;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .galleri .images img {
+            position: absolute;
+            left: 0;
+        }
+
+.previous {
+    top: 40%;
+    position: absolute;
+    background-color: black;
+    color: wheat;
+    border: none;
+    padding: 13px;
+    font-size: 2em;
+    border-radius: 0 10px 10px 0;
+}
+
+.next {
+    top: 40%;
+    right: 0;
+    position: absolute;
+    background-color: black;
+    color: wheat;
+    border: none;
+    padding: 13px;
+    font-size: 2em;
+    border-radius: 0 10px 10px 0;
+}

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="slider">
+        <div class="images">
+            <img src="billeder/Cookie.jpg" />
+            <img src="billeder/PuddleCookies.jpg" />
+            <img src="billeder/pistachioNibCookies.jpg" />
+            <img src="billeder/ToffeeBars.jpg" />
+            <img src="billeder/TruffleTriangles.jpg" />
+        </div>
+        <div class="slideNav">
+            <button class="previous">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+
+     </div>
+
+
+
+    <script src="../Scripts/jquery-2.0.3.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        var addWidth = 0;
+        $(".images").find("img").each(function (i, e) {
+            console.log(i, e)
+            $(e).css("left", "+=" + addWidth + "px");
+            addWidth += $(e).width();
+        });
+
+        $(".next").on("click", function () {
+            console.log();
+            
+            $("img").animate({ left: "-=" + 358 + "px" });
+
+        });
+        $(".previous").on("click", function () {
+            console.log($("img").first().css("left"))
+            if ($("img").first().css("left") == "0px") {
+                $("img").css("left", "-=" + addWidth + "px");
+                $("img").animate({ left: "+=" + 358 + "px" });
+            } else {
+                $("img").animate({ left: "+=" + 358 + "px" });
+            }
+            
+        });
+
+
+    </script>
+</body>
+</html>

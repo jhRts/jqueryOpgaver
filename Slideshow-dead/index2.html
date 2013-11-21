@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="slider">
+        <div class="images">
+            <img src="billeder/Cookie.jpg" />
+            <img src="billeder/PuddleCookies.jpg" />
+            <img src="billeder/pistachioNibCookies.jpg" />
+            <img src="billeder/ToffeeBars.jpg" />
+            <img src="billeder/TruffleTriangles.jpg" />
+        </div>
+        <div class="slideNav">
+            <button class="previous">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+
+     </div>
+
+
+
+    <script src="../Scripts/jquery-2.0.3.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        var index = 0;
+        $(".images").find("img").each(function (i, e) {
+            $(e).css("z-index", -i);
+            index = i;
+            console.log(index);
+        });
+        $("img").first().addClass("activ");
+
+
+        $(".next").on("click", function () {
+            if ($(".activ").length == 0) {
+                $("img").first().addClass("activ");
+            }
+
+            var el = $(".activ");
+            $(el).fadeOut("fast", function () {
+                $(el).removeClass("activ");
+                $(el).next().addClass("activ");
+                $("img").css("z-index", "+=1");
+                $(el).css({ "z-index": -index, "display": "" });
+            });
+          
+        });
+        $(".previous").on("click", function () {
+            //if ($(".activ").length == 0) {
+            //    $("img").first().addClass("activ");
+            //}
+
+            var el = $(".activ");
+            $(el).fadeOut("fast", function () {
+                $(el).removeClass("activ");
+                $(el).next().addClass("activ");
+                $("img").css("z-index", "-=1");
+                $(el).css({ "z-index": index, "display": "" });
+            });
+        });
+
+
+    </script>
+</body>
+</html>
