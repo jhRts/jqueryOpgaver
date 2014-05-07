@@ -74,6 +74,13 @@ function imageNav(e) {
 $(".popUdGalleri").on("click", function () { // klik på lille knap.
     var val = $(this).find("span").text(); // find text i knappen
 
+    $(".images img").attr("src", function (a, b) {
+        var dataSrc = $(this).attr("data-src")
+        $(this).attr("data-src", b)
+        $(this).attr("src", dataSrc)
+    });
+
+
     $(".galleriBg").css({ "width": window.innerWidth, "height": window.innerHeight }); // bg få en Width og Height
     if (val == "+") { // hvis val = + så skal der lukkes ned
         $(".galleri").addClass("popUp");
